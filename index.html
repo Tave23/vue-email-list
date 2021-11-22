@@ -12,10 +12,25 @@
 </head>
 <body>
 
+  <div id="app" class="text-center m-4">
 
-  <div id="app" class="text-center m-3">
+    <div v-if="!httpError">
+      <div v-if="!isLoading">
+      <button
+      @click="generateMail" 
+      class="btn btn-info">Genera mail
+      </button>
+      <ul>
+         <li class="m-5">{{mail}}</li>
+      </ul>
 
-    
+      </div>
+      <h2 v-else >loading....</h2>
+      
+    </div>
+    <div v-else>
+      <h1>ERRORE!</h1>
+    </div>
 
     
 
@@ -31,7 +46,7 @@
   <!-- Axios  -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
 
-  <!-- js -->
+  <!-- custom -->
   <script src="js/script.js"></script>
 </body>
 </html>
