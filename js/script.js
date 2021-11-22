@@ -13,12 +13,13 @@ const app = new Vue({
  
       generateMail(){
        this.isLoading = true;
- 
+         // link del api
        axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
        .then((response) =>{
 
          // console.log(response);
- 
+         
+         // salvo in "mail" il dato
          this.mail  = response.data.response;
 
          console.log(this.mail);
