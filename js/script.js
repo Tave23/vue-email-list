@@ -3,7 +3,6 @@ const app = new Vue({
    el: '#app',
  
    data: {
-     numero: 10,
      isLoading: true,
      httpError: false,
      randomMail:[],
