@@ -4,34 +4,41 @@ const app = new Vue({
  
    data: {
      isLoading: true,
-     httpError: false,
-     randomMail:[],
-     
+     httpError: false,  
+     listMail:[],   
    },
    methods:{
  
       generateMail(){
-       this.isLoading = true;
-         // link del api
-       axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
-       .then((response) =>{
 
-         // console.log(response);
-         
-         // salvo in "mail" il dato
-         this.mail  = response.data.response;
+         for (let i = 0; i < 10; i++) {
 
-         console.log(this.mail);
- 
-     
-         this.isLoading = false;
-       })
-       .catch((error) =>{
-         console.log('ERRORE',error);
-         
-         this.httpError = true;
-       })
-     }
+            this.isLoading = true;
+            // link del api
+            axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+            .then((response) =>{
+
+               // console.log(response);
+               
+               // salvo in "newMail" il dato
+               this.newMail  = response.data.response;
+
+               console.log(this.newMail);
+      
+               this.listMail.push(this.newMail)
+
+               this.isLoading = false;
+            })
+            .catch((error) =>{
+               console.log('ERRORE',error);
+               
+               this.httpError = true;
+            })
+
+         }
+         // svuoto di nuovo l'array per non aggiungere altre mail ma crearne di nuove
+         this.listMail = [];
+      }
  
    },
    mounted(){
