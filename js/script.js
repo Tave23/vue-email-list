@@ -23,6 +23,7 @@ const app = new Vue({
                // salvo in "newMail" il dato
                this.newMail  = response.data.response;
 
+               // log di mail create ogni volta
                console.log(this.newMail);
       
                this.listMail.push(this.newMail)
@@ -36,6 +37,7 @@ const app = new Vue({
             })
 
          }
+         console.log('------------');
          // svuoto di nuovo l'array per non aggiungere altre mail ma crearne di nuove
          this.listMail = [];
       }
